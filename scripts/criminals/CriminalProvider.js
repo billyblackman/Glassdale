@@ -8,7 +8,7 @@ export const getCriminals = () => {
         Make sure the last then() updates the criminals array
     */
    
-       return fetch("http://criminals.glassdale.us/criminals")
+       return fetch("https://criminals.glassdale.us/criminals")
            .then(response => response.json())
            .then(
                parsedCriminals => {
