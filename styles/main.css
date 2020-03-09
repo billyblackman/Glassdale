@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    border: 2px solid;
+
+}
+
+.criminalsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+
+}
+
+.criminalObject {
+    display: flex;
+    padding: 15px;
+    width: 14em;
+    margin: 10px;
+    border: 2px solid;
+    flex-direction: column;
+}
