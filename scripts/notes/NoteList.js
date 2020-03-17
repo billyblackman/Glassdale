@@ -16,7 +16,7 @@ const render = () => {
     getNotes().then(() => {
         const allTheNotes = useNotes()
 
-        contentTarget.innerHTML += allTheNotes.map(
+        contentTarget.innerHTML = allTheNotes.map(
             currentNoteObject => {
                 return Note(currentNoteObject)
             }
