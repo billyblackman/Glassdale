@@ -5,6 +5,24 @@
       "criminal": "things",
       "timestamp": 1584389356852,
       "id": 1
+    },
+    {
+      "noteText": "Test Note",
+      "criminal": "Billy",
+      "timestamp": 1584559080801,
+      "id": 2
+    },
+    {
+      "noteText": "Here is another Note",
+      "criminal": "Jim Timber",
+      "timestamp": 1584560114039,
+      "id": 3
+    },
+    {
+      "noteText": "Another NOTE",
+      "criminal": "Who knows???",
+      "timestamp": 1584560742810,
+      "id": 4
     }
   ]
 }
