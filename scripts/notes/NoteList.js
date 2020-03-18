@@ -1,7 +1,7 @@
 import { getNotes, useNotes } from "./NoteProvider.js"
 import { Note } from "./Note.js"
 
-const contentTarget = document.querySelector(".notes__button")
+const contentTarget = document.querySelector(".notes")
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("noteStateChanged", customEvent => {
@@ -24,3 +24,14 @@ const render = () => {
     })
 }
 
+let visibility = false
+
+eventHub.addEventListener("allNotesClicked", customEvent => {
+    visibility = !visibility
+
+    if (visibility) {
+        contentTarget.classList.remove("invisible")
+    } else {
+        contentTarget.classList.add("invisible")
+    }
+})
