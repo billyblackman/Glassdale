@@ -26,15 +26,17 @@ eventHub.addEventListener("knownAssociatesClicked", customEvent => {
     criminalDialog.showModal()
 })
 
-export const KnownAssociatesDialog = (criminalObject) => {
+const KnownAssociatesDialog = (criminalObject) => {
     contentTarget.innerHTML = `
-        <dialog id="associatesDialog">
+        <dialog id="associatesDialog"><h4>Known Associates</h4>
             ${
                 criminalObject.known_associates.map(
                     (currentAssociate) => {
-                        return `<div>${currentAssociate.name}</div>`
+                        return `<div>${currentAssociate.name}</div>
+                                <div>Alibi: ${currentAssociate.alibi}</div>
+                        `
                     }
-                ).join("")
+                ).join("<br>")
             }
         </dialog>
     `
