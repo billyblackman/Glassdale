@@ -6,6 +6,7 @@ export const Criminal = (criminalObject) => {
         <p>Conviction: ${criminalObject.conviction}</p>
         <p>Term Start: ${new Date(criminalObject.incarceration.start).toLocaleDateString('en-US')}</p>
         <p>Term End: ${new Date(criminalObject.incarceration.end).toLocaleDateString('en-US')}</p>
+        <button id="associates--${criminalObject.id}">Show Associates</button>
     </div>
     `
 }

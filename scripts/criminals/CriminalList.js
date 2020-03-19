@@ -4,6 +4,25 @@ import { Criminal } from "./Criminal.js";
 const contentTarget = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
 
+//Add event listener to listen for when the known associates button is clicked
+contentTarget.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("associates--")) {
+        //Get the id of the criminal that was clicked
+        const [wontuse, criminalId] = clickEvent.target.id.split("--")
+
+        //Let all interested components know that a known associates button was clicked
+        const showAssociatesEvent = new CustomEvent("knownAssociatesClicked", {
+            //Tell interested components the id of the criminal whose button was clicked
+            detail: {
+                chosenCriminal: criminalId
+            }
+        })
+
+        eventHub.dispatchEvent(showAssociatesEvent)
+    }
+})
+
+
 eventHub.addEventListener("crimeChosen", event => {
     // Filter the list of criminal who committed the crime
 
