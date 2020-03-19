@@ -14,7 +14,7 @@ eventHub.addEventListener("allNotesClicked", customEvent => {
 
 const render = () => {
     getNotes().then(() => {
-        const allTheNotes = useNotes()
+        const allTheNotes = useNotes().reverse()
 
         contentTarget.innerHTML = allTheNotes.map(
             currentNoteObject => {
