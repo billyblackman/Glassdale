@@ -24,6 +24,8 @@ const render = () => {
     })
 }
 
+let visibility = false
+
 eventHub.addEventListener("allWitnessesClicked", customEvent => {
     visibility = !visibility
 

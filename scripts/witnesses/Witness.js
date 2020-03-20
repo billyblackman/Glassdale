@@ -1,10 +1,8 @@
 export const Witness = witnessObject => {
     return `
-    <section class="witness">
-    <header>
-        <h2>${witnessObject.name}</h2>
-    </header>
-    <p>${witnessObject.statements}</p>
-</section>
+    <div class="witnessObject">
+        <h4>${witnessObject.name}</h4>
+        <p>Statement: ${witnessObject.statements}</p>
+    </div>
     `
 }

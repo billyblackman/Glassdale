@@ -27,3 +27,18 @@
 .invisible {
     display: none;
 }
+
+.witnessesContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+
+}
+
+.witnessObject {
+    padding: 15px;
+    width: 14em;
+    margin: 10px;
+    border: 2px solid;
+}

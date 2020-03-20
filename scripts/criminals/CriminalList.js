@@ -56,3 +56,14 @@ export const CriminalList = () => {
     }
 }
 
+let visibility = true
+
+eventHub.addEventListener("allWitnessesClicked", customEvent => {
+    visibility = !visibility
+
+    if (visibility) {
+        contentTarget.classList.remove("invisible")
+    } else {
+        contentTarget.classList.add("invisible")
+    }
+})
