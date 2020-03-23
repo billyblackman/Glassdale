@@ -1,0 +1,20 @@
+.noteFormContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.notesContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.noteObject {
+    padding: 15px;
+    width: 14em;
+    margin: 10px;
+    border: 2px solid cadetblue;
+}

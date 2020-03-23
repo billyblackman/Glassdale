@@ -1,7 +1,7 @@
 import { getNotes, useNotes } from "./NoteProvider.js"
 import { Note } from "./Note.js"
 
-const contentTarget = document.querySelector(".notes")
+const contentTarget = document.querySelector(".notesContainer")
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("noteStateChanged", customEvent => {
