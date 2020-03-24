@@ -1,5 +1,6 @@
 import { getNotes, useNotes } from "./NoteProvider.js"
 import { Note } from "./Note.js"
+import { useCriminals } from "../criminals/CriminalProvider.js"
 
 const contentTarget = document.querySelector(".notesContainer")
 const eventHub = document.querySelector(".container")
@@ -12,18 +13,6 @@ eventHub.addEventListener("allNotesClicked", customEvent => {
     render()
 })
 
-const render = () => {
-    getNotes().then(() => {
-        const allTheNotes = useNotes().reverse()
-
-        contentTarget.innerHTML = allTheNotes.map(
-            currentNoteObject => {
-                return Note(currentNoteObject)
-            }
-        ).join("")
-    })
-}
-
 let visibility = false
 
 eventHub.addEventListener("allNotesClicked", customEvent => {
@@ -35,3 +24,36 @@ eventHub.addEventListener("allNotesClicked", customEvent => {
         contentTarget.classList.add("invisible")
     }
 })
+
+const render = () => {
+
+    if (visibility) {
+        contentTarget.classList.remove("invisible")
+    } else {
+        contentTarget.classList.add("invisible")
+    }
+
+    getNotes()
+        .then(() => {
+        const allTheNotes = useNotes().reverse()
+        const allTheCriminals = useCriminals()
+
+        contentTarget.innerHTML = allTheNotes.map(
+            currentNoteObject => {
+
+                //Find the criminal for the current note
+                const theFoundCriminal = allTheCriminals.find(
+                    currentCriminalObject => {
+                        return currentNoteObject.criminal === currentCriminalObject.id
+                    }
+                )
+
+                return Note(currentNoteObject, theFoundCriminal)
+            }
+        ).join("")
+    })
+}
+
+export const NotesList = () => {
+    render()
+}

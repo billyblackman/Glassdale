@@ -10,27 +10,23 @@ import './notes/Notelist.js'
 import './criminals/KnownAssociatesDialog.js'
 import { DisplayWitnessesButton } from './witnesses/WitnessDisplayButton.js'
 import './witnesses/WitnessList.js'
+import { NotesList } from './notes/Notelist.js'
+// import { getNotes } from './notes/NoteProvider.js'
 
-getCriminals().then(
-    /*
-        Now that you have the data, what
-        component should be rendered?
-    */
-    () => CriminalList()
+getCriminals()
+    .then(CriminalList)
+    .then(NotesList)
+    .then(NoteForm)
     
-)
+
 
 
 
 getConvictions().then(
-    /*
-        Now that you have the data, what
-        component should be rendered?
-    */
     () => ConvictionSelect()
 )
 
-NoteForm()
+
 DisplayNoteFormButton()
 DisplayNotesButton()
 DisplayWitnessesButton()
