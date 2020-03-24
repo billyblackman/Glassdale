@@ -10,4 +10,6 @@
     width: 14em;
     margin: 10px;
     border: 2px solid;
+    background-color: rgb(117, 5, 28);
+    border-radius: 5%;
 }

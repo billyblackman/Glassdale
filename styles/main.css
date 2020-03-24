@@ -2,10 +2,12 @@
 @import url("../styles/witnesses/witnesses.css");
 @import url("../styles/notes/notes.css");
 
+
 .container {
     display: flex;
     flex-direction: column;
     border: 2px solid;
+    background-color: cadetblue;
 
 }
 
