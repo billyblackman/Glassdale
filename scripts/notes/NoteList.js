@@ -1,9 +1,15 @@
-import { getNotes, useNotes } from "./NoteProvider.js"
+import { getNotes, useNotes, deleteNote } from "./NoteProvider.js"
 import { Note } from "./Note.js"
 import { useCriminals } from "../criminals/CriminalProvider.js"
 
 const contentTarget = document.querySelector(".notesContainer")
 const eventHub = document.querySelector(".container")
+
+//State variables
+
+let visibility = false
+
+//EVENT HANDLERS
 
 eventHub.addEventListener("noteStateChanged", customEvent => {
     render()
@@ -13,7 +19,7 @@ eventHub.addEventListener("allNotesClicked", customEvent => {
     render()
 })
 
-let visibility = false
+//Display notes event
 
 eventHub.addEventListener("allNotesClicked", customEvent => {
     visibility = !visibility
@@ -24,6 +30,18 @@ eventHub.addEventListener("allNotesClicked", customEvent => {
         contentTarget.classList.add("invisible")
     }
 })
+
+//Delete note event
+
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("deleteNote--")) {
+        const [notUsing, noteId] = clickEvent.target.id.split("--")
+        deleteNote(noteId)
+    }
+})
+
+
+//End of event handlers
 
 const render = () => {
 

@@ -4,7 +4,11 @@ import { useCriminals, getCriminals } from "../criminals/CriminalProvider.js"
 const contentTarget = document.querySelector(".noteFormContainer")
 const eventHub = document.querySelector(".container")
 
+//State variables
+
 let visibility = false
+
+//Event Handlers
 
 eventHub.addEventListener("noteFormButtonClicked", customEvent => {
     visibility = !visibility
@@ -32,6 +36,8 @@ contentTarget.addEventListener("click", clickEvent => {
         saveNote(newNote)
     }
 })
+
+
 
 const render = () => {
     contentTarget.classList.add("invisible")
