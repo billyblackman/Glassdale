@@ -1,10 +1,16 @@
 {
   "notes": [
     {
-      "noteText": "First real note",
-      "criminal": 25,
-      "timestamp": 1585081455048,
+      "noteText": "First Note",
+      "criminal": 6,
+      "timestamp": 1585147533241,
       "id": 1
+    },
+    {
+      "noteText": "second note",
+      "criminal": 16,
+      "timestamp": 1585147571121,
+      "id": 2
     }
   ]
 }
