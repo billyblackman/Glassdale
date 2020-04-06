@@ -22,9 +22,38 @@ contentTarget.addEventListener("click", clickEvent => {
     }
 })
 
+    // Filter the list of criminal who committed the officer
+
+eventHub.addEventListener("officerChosen", event => {
+
+
+
+    // Get the criminals
+    const criminals = useCriminals()
+
+    // Get the officer
+    const theOfficerThatWasChosen = event.detail.chosenOfficer
+
+    // Look at all of the criminals and determine if each one is a vandal
+    const arrestedCriminals = criminals.filter(criminal => {
+        if (criminal.arrestingOfficer === theOfficerThatWasChosen) {
+            return true
+        }
+        return false 
+    })
+
+    // Clear inner HTML of the criminal list
+    contentTarget.innerHTML = ""
+
+    // Build it up again
+    for (const singleCriminal of arrestedCriminals) {
+        contentTarget.innerHTML += Criminal(singleCriminal)
+    }
+})
 
 eventHub.addEventListener("crimeChosen", event => {
-    // Filter the list of criminal who committed the crime
+
+
 
     // Get the criminals
     const criminals = useCriminals()
@@ -49,12 +78,15 @@ eventHub.addEventListener("crimeChosen", event => {
     }
 })
 
+
 export const CriminalList = () => {
     const criminals = useCriminals()
     for (const singleCriminal of criminals) {
         contentTarget.innerHTML += Criminal(singleCriminal)
     }
 }
+
+
 
 let visibility = true
 

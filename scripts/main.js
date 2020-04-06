@@ -11,6 +11,8 @@ import './criminals/KnownAssociatesDialog.js'
 import { DisplayWitnessesButton } from './witnesses/WitnessDisplayButton.js'
 import './witnesses/WitnessList.js'
 import { NotesList } from './notes/Notelist.js'
+import { getOfficers } from './officers/OfficerProvider.js'
+import officerSelect from './officers/OfficerSelect.js'
 // import { getNotes } from './notes/NoteProvider.js'
 
 getCriminals()
@@ -22,11 +24,15 @@ getCriminals()
 
 
 
-getConvictions().then(
-    () => ConvictionSelect()
-)
+getConvictions()
+    .then(ConvictionSelect)
+
+getOfficers()
+    .then(officerSelect)
 
 
-DisplayNoteFormButton()
-DisplayNotesButton()
-DisplayWitnessesButton()
+    
+    DisplayNoteFormButton()
+    DisplayNotesButton()
+    DisplayWitnessesButton()
+    
